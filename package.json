@@ -14,7 +14,7 @@
   "author": "Neil Fraser <root@neil.fraser.name> (http://neil.fraser.name/)",
   "name": "googlediff",
   "description": "Simple packaging of Neil Fraser's original google-diff-match-patch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://code.google.com/p/google-diff-match-patch/",
   "repository": {
     "type": "git",

@@ -506,7 +506,7 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
    * @return {string} Encoded string.
    * @private
    */
-  function diff_linesToCharsMunge_(text) {
+  function diff_linesToWordsMunge_(text) {
     var chars = '';
     // Walk the text, pulling out a substring for each line.
     // text.split('\n') would would temporarily double our memory footprint.
@@ -519,6 +519,8 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
       lineEnd = text.indexOf(' ', lineStart);
       if (lineEnd == -1) {
         lineEnd = text.length - 1;
+      } else if(lineEnd !== lineStart + 1 && lineEnd !== lineStart) {
+        lineEnd--;
       }
       var line = text.substring(lineStart, lineEnd + 1);
       lineStart = lineEnd + 1;
@@ -535,9 +537,9 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
     return chars;
   }
 
-  var chars1 = diff_linesToCharsMunge_(text1);
+  var chars1 = diff_linesToWordsMunge_(text1);
 
-  var chars2 = diff_linesToCharsMunge_(text2);
+  var chars2 = diff_linesToWordsMunge_(text2);
   return {chars1: chars1, chars2: chars2, lineArray: lineArray};
 };
 
