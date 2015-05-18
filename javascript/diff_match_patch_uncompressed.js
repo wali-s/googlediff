@@ -522,6 +522,10 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
       } else if(lineEnd !== lineStart + 1 && lineEnd !== lineStart) {
         lineEnd--;
       }
+      realLineEnd = text.indexOf('\n', lineStart);
+      if(realLineEnd < lineEnd && realLineEnd !== -1) {
+        lineEnd = realLineEnd;
+      }
       var line = text.substring(lineStart, lineEnd + 1);
       lineStart = lineEnd + 1;
 
@@ -536,7 +540,6 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
     }
     return chars;
   }
-
   var chars1 = diff_linesToWordsMunge_(text1);
 
   var chars2 = diff_linesToWordsMunge_(text2);
