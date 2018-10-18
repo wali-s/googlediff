@@ -472,8 +472,7 @@ diff_match_patch.prototype.diff_linesToChars_ = function(text1, text2) {
       }
       var line = text.substring(lineStart, lineEnd + 1);
       lineStart = lineEnd + 1;
-
-      if (lineHash.hasOwnProperty ? lineHash.hasOwnProperty(line) :
+      if (lineHash.hasOwnProperty && typeof lineHash.hasOwnProperty === 'function' ? lineHash.hasOwnProperty(line) :
           (lineHash[line] !== undefined)) {
         chars += String.fromCharCode(lineHash[line]);
       } else {
@@ -529,7 +528,7 @@ diff_match_patch.prototype.diff_linesToWords_ = function(text1, text2) {
       var line = text.substring(lineStart, lineEnd + 1);
       lineStart = lineEnd + 1;
 
-      if (lineHash.hasOwnProperty ? lineHash.hasOwnProperty(line) :
+      if (lineHash.hasOwnProperty && typeof lineHash.hasOwnProperty === 'function' ? lineHash.hasOwnProperty(line) :
           (lineHash[line] !== undefined)) {
         chars += String.fromCharCode(lineHash[line]);
       } else {
@@ -2246,4 +2245,3 @@ this['diff_match_patch'] = diff_match_patch;
 this['DIFF_DELETE'] = DIFF_DELETE;
 this['DIFF_INSERT'] = DIFF_INSERT;
 this['DIFF_EQUAL'] = DIFF_EQUAL;
-
